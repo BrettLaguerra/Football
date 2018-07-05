@@ -3,9 +3,35 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.Plax.Count; i++)
+            {
+            <tr>
+                <td>@Model.Plax[i].FullName</td>
+                <td>@Model.Plax[i].PlayerId</td>
+                <td>@Model.Plax[i].Rush</td>
+                <td>@Model.Plax[i].RushYards</td>
+                <td>@Model.Plax[i].RushTd</td>
+                <td>@Model.Plax[i].Targets</td>
+                <td>@Model.Plax[i].Rec</td>
+                <td>@Model.Plax[i].RecYards</td>
+                <td>@Model.Plax[i].RecTd</td>
+                <td>@Model.Plax[i].Attempts</td>
+                <td>@Model.Plax[i].PassYards</td>
+                <td>@Model.Plax[i].PassTd</td>
+                <td>@Model.Plax[i].Pick</td>
+                <td>@Model.Plax[i].Fum</td>
+            </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
 <div class="row">

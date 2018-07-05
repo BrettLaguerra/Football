@@ -9,8 +9,9 @@ namespace Football.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: Player
         public static List<Player> RB = new List<Player>
-         {
+        {
                         new Player { PlayerId = 1, LastName = "Gurley", FirstName = "Todd", Rush = 279, RushYards = 1305, RushTd = 13, Targets = 87, Rec = 64, RecYards = 788, RecTd = 6, Fum = 5 },
                         new Player { PlayerId = 2, LastName = "Bell", FirstName = "Le'Veon", Rush = 321, RushYards = 1291, RushTd = 9, Targets = 107, Rec = 85, RecYards = 655, RecTd = 2, Fum = 3 }
         };
