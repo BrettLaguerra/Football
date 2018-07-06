@@ -21,11 +21,19 @@ namespace Football.Controllers
             var playerList = new PlayerListViewModel
             {
                 //Convert each Person to a PersonViewModel
-                Plax = Plax.Select(p => new PlayerViewModel
+                Plax = RB.Select(p => new PlayerViewModel
                 {
                     PlayerId = p.PlayerId,
                     LastName = p.LastName,
-                    FirstName = p.FirstName
+                    FirstName = p.FirstName,
+                    Rush = p.Rush,
+                    RushYards = p.RushYards,
+                    RushTd = p.RushTd,
+                    Targets = p.Targets,
+                    Rec = p.Rec,
+                    RecYards = p.RecYards,
+                    RecTd = p.RecTd,
+                    Fum = p.Fum
                 }).ToList()
             };
 
