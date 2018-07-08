@@ -1,71 +1,118 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+<style>
+    .row
+    {
+       margin-bottom: 4px;
+    }
+    h3
+    {
+        margin-top: -3%;
+    }
+    .TEButtons
+    {
+        margin-top: 38%;
+    }
+</style>
 <div class="jumbotron">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Last</th>
-                <th>First</th>
-                <th>Id</th>
-                <th>Rush</th>
-                <th>Rush Yards</th>
-                <th>Rush Td</th>
-                <th>Targets</th>
-                <th>Rec</th>
-                <th>Rec Yards</th>
-                <th>Rec Td</th>
-                <th>Attempts</th>
-                <th>Pass Yards</th>
-                <th>Pass Td</th>
-                <th>Pick</th>
-                <th>Fumble</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (var i = 0; i < Model.Plax.Count; i++)
-            {
-            <tr>
-                <td>@Model.Plax[i].LastName</td>
-                <td>@Model.Plax[i].FirstName</td>
-                <td>@Model.Plax[i].PlayerId</td>
-                <td>@Model.Plax[i].Rush</td>
-                <td>@Model.Plax[i].RushYards</td>
-                <td>@Model.Plax[i].RushTd</td>
-                <td>@Model.Plax[i].Targets</td>
-                <td>@Model.Plax[i].Rec</td>
-                <td>@Model.Plax[i].RecYards</td>
-                <td>@Model.Plax[i].RecTd</td>
-                <td>@Model.Plax[i].Attempts</td>
-                <td>@Model.Plax[i].PassYards</td>
-                <td>@Model.Plax[i].PassTd</td>
-                <td>@Model.Plax[i].Pick</td>
-                <td>@Model.Plax[i].Fum</td>
-            </tr>
-            }
-        </tbody>
-    </table>
+    <h3 class="text-center">My Team</h3>
+    <div class="container">
+        <div class="col-sm-2">
+            <div class="row, TEButtons">
+                <div class="row">
+                    @Html.ActionLink("Add QB", "AddQB", "Player", null, new { @class = "btn btn-primary" })
+                </div>
+                <div class="row">
+                    @Html.ActionLink("Add RB", "AddRB", "Player", null, new { @class = "btn btn-primary" })
+                </div>
+                <div class="row">
+                    @Html.ActionLink("Add RB", "AddRB", "Player", null, new { @class = "btn btn-primary" })
+                </div>
+                <div class="row">
+                    @Html.ActionLink("Add WR", "AddWR", "Player", null, new { @class = "btn btn-primary" })
+                </div>
+                <div class="row">
+                    @Html.ActionLink("Add WR", "AddWR", "Player", null, new { @class = "btn btn-primary" })
+                </div>
+                <div class="row">
+                    @Html.ActionLink("Add TE", "AddTE", "Player", null, new { @class = "btn btn-primary" })
+                </div>
+                <div class="row">
+                    @Html.ActionLink("Add Flex", "AddFlex", "Player", null, new { @class = "btn btn-primary" })
+                </div>
+                <div class="row">
+                    @Html.ActionLink("Add Flex", "AddFlex", "Player", null, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Last</th>
+                                <th>First</th>
+                                <th>Id</th>
+                                <th>Pos</th>
+                                <th>Rush</th>
+                                <th>Rush Yds</th>
+                                <th>Rush Td</th>
+                                <th>Targets</th>
+                                <th>Rec</th>
+                                <th>Rec Yds</th>
+                                <th>Rec Td</th>
+                                <th>Attempts</th>
+                                <th>Pass Yds</th>
+                                <th>Pass Td</th>
+                                <th>Int</th>
+                                <th>Fum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (var i = 0; i < Model.Plax.Count; i++)
+                            {
+                                <tr>
+                                    <td>@Model.Plax[i].LastName</td>
+                                    <td>@Model.Plax[i].FirstName</td>
+                                    <td class="text-center">@Model.Plax[i].PlayerId</td>
+                                    <td class="text-center">@Model.Plax[i].Position</td>
+                                    <td class="text-center">@Model.Plax[i].Rush</td>
+                                    <td class="text-center">@Model.Plax[i].RushYards</td>
+                                    <td class="text-center">@Model.Plax[i].RushTd</td>
+                                    <td class="text-center">@Model.Plax[i].Targets</td>
+                                    <td class="text-center">@Model.Plax[i].Rec</td>
+                                    <td class="text-center">@Model.Plax[i].RecYards</td>
+                                    <td class="text-center">@Model.Plax[i].RecTd</td>
+                                    <td class="text-center">@Model.Plax[i].Attempts</td>
+                                    <td class="text-center">@Model.Plax[i].PassYards</td>
+                                    <td class="text-center">@Model.Plax[i].PassTd</td>
+                                    <td class="text-center">@Model.Plax[i].Pick</td>
+                                    <td class="text-center">@Model.Plax[i].Fum</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        @Html.ActionLink("View QB", "QBList", "Player", null, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-sm-3">
+        @Html.ActionLink("View RB", "RBList", "Player", null, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-sm-3">
+        @Html.ActionLink("View WR", "WRList", "Player", null, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-sm-3">
+        @Html.ActionLink("View TE", "TEList", "Player", null, new { @class = "btn btn-primary" })
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>

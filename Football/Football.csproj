@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,9 +194,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\BrowsePlayers.cshtml" />
+    <Content Include="Views\Player\AddQB.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Player\RBList.cshtml" />
+    <Content Include="Views\Player\QBList.cshtml" />
+    <Content Include="Views\Player\TEList.cshtml" />
+    <Content Include="Views\Player\WRList.cshtml" />
+    <Content Include="Views\Player\AddRB.cshtml" />
+    <Content Include="Views\Player\AddWR.cshtml" />
+    <Content Include="Views\Player\AddTE.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,8 +5,10 @@ namespace Football.Models
     public class PlayerViewModel
     {
         public int? PlayerId { get; set; }
+        public string Position { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
+        public string FullName => FirstName + " " + LastName;
 
         public int? Rush { get; set; }
         public int? RushYards { get; set; }
