@@ -9,6 +9,17 @@ namespace Football.Controllers
 {
     public class PlayerController : Controller
     {
+        public static List<Player> Team = new List<Player>()
+        {
+            new Player {},
+            new Player {},
+            new Player {},
+            new Player {},
+            new Player {},
+            new Player {},
+            new Player {}
+        };
+
         public static List<Player> RB = new List<Player>()
             {
                         new Player { PlayerId = 1, Position = "RB", LastName = "Gurley", FirstName = "Todd", Rush = 279, RushYards = 1305, RushTd = 13, Targets = 87, Rec = 64, RecYards = 788, RecTd = 6, Fum = 5 },
@@ -225,13 +236,53 @@ namespace Football.Controllers
 
         /************* CRUD OPERATIONS **************/
 
-
-        public ActionResult PlayerAdd()
+        [HttpPost]
+        public ActionResult QBEdit()
         {
-            var playerViewModel = new PlayerViewModel();
-
-            return View("AddQB", playerViewModel);
+            string LastName = Request.Form["LastName"];
+            string FirstName = Request.Form["FirstName"];
+            var player = RB.SingleOrDefault(p => (p.LastName.Equals(LastName, StringComparison.OrdinalIgnoreCase) && (p.FirstName.Equals(FirstName, StringComparison.OrdinalIgnoreCase))));
+            if (player != null)
+            {
+                return RedirectToAction("Index", "Home", player);
+            }
+            //set up an error catch for position
+            //use viewbag
+            return new HttpNotFoundResult();
         }
+
+        [HttpPost]
+        public ActionResult EditQB(PlayerViewModel playerViewModel)
+        {
+            var person = QB.SingleOrDefault(p => p.PlayerId == playerViewModel.PlayerId);
+
+            if (person != null)
+            {
+                person.LastName = playerViewModel.LastName;
+                person.FirstName = playerViewModel.FirstName;
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return new HttpNotFoundResult();
+        }
+
+        /*[HttpPost]
+        public ActionResult AddPlayer(PlayerViewModel personViewModel)
+        {
+            var nextPlayerId = Team.Max(p => p.PlayerId) + 1;
+
+            var player = new Player
+            {
+                PlayerId = nextPlayerId,
+                LastName = personViewModel.LastName,
+                FirstName = personViewModel.FirstName
+            };
+
+            Team.Add(player);
+
+            return RedirectToAction("Index", "Home");
+        }*/
 
         public ActionResult AddQB()
         {

@@ -21,8 +21,12 @@ namespace Football.Controllers
            new Player { PlayerId = 1, Position = "QB", LastName = "Sample", FirstName = "Sample", Rush = 1, RushYards = 10, RushTd = 10, Targets = 10, Rec = 10, RecYards = 10, RecTd = 10, Fum = 10 },*/
         };
 
-        public ActionResult Index()
+        public ActionResult Index(Player player)
         {
+            if (player != null)
+            {
+                Team.Add(player);
+            }
             var playerList = new PlayerListViewModel
             {
                 //Convert each Person to a PersonViewModel
